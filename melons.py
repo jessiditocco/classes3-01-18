@@ -28,7 +28,6 @@ class AbstractMelonOrder(object):
         self.shipped = True
 
 
-
 class DomesticMelonOrder(AbstractMelonOrder):
     """A melon order within the USA."""
 
@@ -66,11 +65,11 @@ class InternationalMelonOrder(AbstractMelonOrder):
 
         return total_before_fee
 
-
     def get_country_code(self):
         """Return the country code."""
 
         return self.country_code
+
 
 class GovernmentMelonOrder(AbstractMelonOrder):
     """A government melon order that has no tax."""
@@ -88,8 +87,5 @@ class GovernmentMelonOrder(AbstractMelonOrder):
 
     def mark_inspection(self, passed):
         """Updates passed_inspection based on boolean input."""
-        
-        if passed:
-            self.passed_inspection = True
-        else:
-            self.passed_inspection = False
+
+        self.passed_inspection = passed
